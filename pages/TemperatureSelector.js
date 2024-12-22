@@ -14,7 +14,7 @@ export default function TemperatureSelector({ onMetricSelect }) {
         setError(null);
       })
       .catch((err) => {
-        console.error("Fehler beim Abrufen der Metriken:", error);
+        console.error("Fehler beim Abrufen der Metriken:", err);
         setError("Fehler bei der Auswahl");
       });
   }, []);
