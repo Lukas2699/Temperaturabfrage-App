@@ -4,7 +4,7 @@ import pandas as pd
 
 app = FastAPI(docs_url="/api/py/docs", openapi_url="/api/py/openapi.json")
 
-DATA_FILE =fastapi-vercel/pages/Data/meteodaten_2023_daily.csv
+DATA_FILE ="fastapi-vercel/pages/Data/meteodaten_2023_daily.csv"
 data = pd.read_csv(DATA_FILE, encoding="ISO-8859-1", delimiter=",", names=["Datum", "Standort", "Standortname", "WGS84_lat", "WGS84_lng", "RainDur", "StrGlo", "T", "T_max_h1", "p"], header=0)
 
 @app.get("/api/py/weather/locations")
