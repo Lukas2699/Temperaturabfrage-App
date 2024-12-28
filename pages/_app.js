@@ -4,6 +4,7 @@ import LocationSelector from "./LocationSelector";
 import DateRangeSlider from "./DateRangeSlider";
 import TemperatureSelector from "./TemperatureSelector";
 import ChartButton from "./ChartButton";
+import Diagramm from "./Diagramm";
 
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -24,12 +25,13 @@ export default function App() {
     console.log("Ausgewählte Metrik:", metric);
   };
 
-  const [filteredData, setFilteredData] = useState([]);
   const isButtonEnabled =
     selectedLocation &&
     selectedDateRange.startDate &&
     selectedDateRange.endDate &&
     selectedMetric;
+
+  const [filteredData, setFilteredData] = useState([]);
 
   const handleSubmit = () => {
     axios
@@ -65,7 +67,14 @@ export default function App() {
       <div>
         <ChartButton isEnabled={isButtonEnabled} onClick={handleSubmit} />
       </div>
-      <div>{filteredData.length > 0 && null}</div>
+      {filteredData.length > 0 ? (
+        <Diagramm
+          data={filteredData.map((item) => ({
+            Datum: item.Datum,
+            value: item[selectedMetric],
+          }))}
+        />
+      ) : null}
     </>
   );
 }
