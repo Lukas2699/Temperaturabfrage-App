@@ -32,9 +32,20 @@ export default function TemperatureSelector({ onMetricSelect }) {
       {error ? (
         <p style={{ color: "red" }}>{error}</p>
       ) : (
-        <select onChange={handleSelection} value={selectedMetric}>
+        <select
+          onChange={handleSelection}
+          value={selectedMetric}
+          style={{
+            padding: "5px",
+            fontSize: "20px",
+            width: "300px",
+            height: "50px",
+            backgroundColor: "lightgrey",
+            borderRadius: "5px",
+          }}
+        >
           <option value="" disabled>
-            Metrik auswählen
+            Metrik wählen
           </option>
           {metrics.map((metric) => (
             <option key={metric.key} value={metric.key}>

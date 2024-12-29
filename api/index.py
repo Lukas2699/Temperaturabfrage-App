@@ -21,8 +21,8 @@ def get_date_range():
 @app.get("/api/py/weather/metrics")
 def get_metrics():
     metrics = [
-        {"key": "T", "label": "Durchschnittstemperatur (T)"},
-        {"key": "T_max_h1", "label": "Höchsttemperatur (T_max)"}
+        {"key": "T", "label": "Durchschnittstemperatur"},
+        {"key": "T_max_h1", "label": "Höchsttemperatur"}
     ]
     return {"metrics": metrics}
 

@@ -56,11 +56,11 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
         step={1}
       />
       <Typography>
-        Zeitraum: {minDate && maxDate && `${minDate} bis ${maxDate}`}
+        Möglicher Zeitraum: {minDate && maxDate && `${minDate} bis ${maxDate}`}
       </Typography>
       {dateRange && (
         <Typography>
-          Ausgewählt:{" "}
+          Ausgewählter Zeitraum:{" "}
           {dateList.length > 0 &&
             `${
               dateList[Math.round((dateRange[0] / 100) * (dateList.length - 1))]

@@ -26,10 +26,20 @@ export default function LocationSelector({ onLocationSelect }) {
 
   return (
     <div>
-      <h2>Standort Wählen</h2>
-      <select onChange={handleSelection} value={selectedLocation}>
+      <select
+        onChange={handleSelection}
+        value={selectedLocation}
+        style={{
+          padding: "5px",
+          fontSize: "20px",
+          width: "300px",
+          height: "50px",
+          backgroundColor: "lightgrey",
+          borderRadius: "5px",
+        }}
+      >
         <option value="" disabled>
-          Standort auswählen
+          Standort wählen
         </option>
         {locations.map((location, index) => (
           <option key={index} value={location}>

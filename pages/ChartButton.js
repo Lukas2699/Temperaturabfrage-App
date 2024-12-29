@@ -13,6 +13,10 @@ export default function ChartButton({ isEnabled, onClick }) {
         borderRadius: "5px",
         cursor: isEnabled ? "pointer" : "not-allowed",
         marginTop: "20px",
+        width: "300px",
+        height: "50px",
+        padding: "5px",
+        fontSize: "20px",
       }}
     >
       Auswahl bestätigen

@@ -55,26 +55,51 @@ export default function App() {
   return (
     <>
       <div>
-        <h1>Wetterdaten-App</h1>
+        <h1
+          style={{
+            marginLeft: "20px",
+            backgroundColor: "lightblue",
+            padding: "10px",
+            borderRadius: "5px",
+          }}
+        >
+          Temperaturabfrage-App
+        </h1>
+      </div>
+      <div
+        style={{
+          marginLeft: "20px",
+        }}
+      >
         <LocationSelector onLocationSelect={handleLocationSelect} />
       </div>
       <div>
         <DateRangeSlider onDateRangeSelect={handleDateRangeSelect} />
       </div>
-      <div>
+      <div
+        style={{
+          marginLeft: "20px",
+        }}
+      >
         <TemperatureSelector onMetricSelect={handleMetricSelect} />
       </div>
-      <div>
+      <div
+        style={{
+          marginLeft: "20px",
+        }}
+      >
         <ChartButton isEnabled={isButtonEnabled} onClick={handleSubmit} />
       </div>
-      {filteredData.length > 0 ? (
-        <Diagramm
-          data={filteredData.map((item) => ({
-            Datum: item.Datum,
-            value: item[selectedMetric],
-          }))}
-        />
-      ) : null}
+      <div>
+        {filteredData.length > 0 ? (
+          <Diagramm
+            data={filteredData.map((item) => ({
+              Datum: item.Datum,
+              value: item[selectedMetric],
+            }))}
+          />
+        ) : null}
+      </div>
     </>
   );
 }
