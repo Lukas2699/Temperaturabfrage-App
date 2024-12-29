@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LocationSelector from "./LocationSelector";
 import DateRangeSlider from "./DateRangeSlider";
@@ -13,7 +13,26 @@ export default function App() {
     console.log("Ausgewählter Standort:", location);
   };
 
-  const [selectedDateRange, setSelectedDateRange] = useState({});
+  const [selectedDateRange, setSelectedDateRange] = useState({
+    startDate: "",
+    endDate: "",
+  });
+
+  useEffect(() => {
+    axios
+      .get("https://temperatabfrage.vercel.app/api/py/weather/date-range")
+      .then((response) => {
+        setSelectedDateRange({
+          startDate: response.data.min_date,
+          endDate: response.data.max_date,
+        });
+        console.log("Datensatz-Datumbereich:", response.data);
+      })
+      .catch((error) => {
+        console.error("Fehler beim Abrufen des Datumsbereiches:", error);
+      });
+  }, []);
+
   const handleDateRangeSelect = (range) => {
     setSelectedDateRange(range);
     console.log("Ausgewählter Zeitraum:", range);
@@ -25,11 +44,7 @@ export default function App() {
     console.log("Ausgewählte Metrik:", metric);
   };
 
-  const isButtonEnabled =
-    selectedLocation &&
-    selectedDateRange.startDate &&
-    selectedDateRange.endDate &&
-    selectedMetric;
+  const isButtonEnabled = selectedLocation && selectedMetric;
 
   const [filteredData, setFilteredData] = useState([]);
 
