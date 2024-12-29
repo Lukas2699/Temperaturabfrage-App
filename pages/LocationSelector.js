@@ -8,7 +8,7 @@ export default function LocationSelector({ onLocationSelect }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/py/weather/locations")
+      .get("https://temperatabfrage.vercel.app/api/py/weather/locations")
       .then((response) => {
         setLocations(response.data.locations);
       })

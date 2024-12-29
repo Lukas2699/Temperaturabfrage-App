@@ -11,7 +11,7 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/py/weather/date-range")
+      .get("https://temperatabfrage.vercel.app/api/py/weather/date-range")
       .then((response) => {
         setMinDate(response.data.min_date);
         setMaxDate(response.data.max_date);

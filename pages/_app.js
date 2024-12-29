@@ -35,7 +35,7 @@ export default function App() {
 
   const handleSubmit = () => {
     axios
-      .get("http://localhost:3000/api/py/weather/filter", {
+      .get("https://temperatabfrage.vercel.app/api/py/weather/filter", {
         params: {
           location: selectedLocation,
           start_date: selectedDateRange.startDate,

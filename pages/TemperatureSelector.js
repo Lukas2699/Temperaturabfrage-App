@@ -8,7 +8,7 @@ export default function TemperatureSelector({ onMetricSelect }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/py/weather/metrics")
+      .get("https://temperatabfrage.vercel.app/api/py/weather/metrics")
       .then((response) => {
         setMetrics(response.data.metrics);
         setError(null);
