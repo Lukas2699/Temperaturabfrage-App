@@ -42,7 +42,7 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
 
   return (
     <div style={{ margin: "20px" }}>
-      <h6>Zeitraum wählen</h6>
+      <h3>Zeitraum wählen</h3>
       <Slider
         value={dateRange}
         onChange={handleSliderChange}
@@ -55,11 +55,11 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
         max={100}
         step={1}
       />
-      <h6>
+      <h3>
         Möglicher Zeitraum: {minDate && maxDate && `${minDate} bis ${maxDate}`}
-      </h6>
+      </h3>
       {dateRange && (
-        <h6>
+        <h3>
           Ausgewählter Zeitraum:{" "}
           {dateList.length > 0 &&
             `${
@@ -67,7 +67,7 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
             } bis ${
               dateList[Math.round((dateRange[1] / 100) * (dateList.length - 1))]
             }`}
-        </h6>
+        </h3>
       )}
     </div>
   );
