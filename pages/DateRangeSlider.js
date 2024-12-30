@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Slider, Typography } from "@mui/material";
+import { Slider } from "@mui/material";
 
 export default function DateRangeSlider({ onDateRangeSelect }) {
   const [dateRange, setDateRange] = useState([0, 100]);
@@ -42,7 +42,7 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
 
   return (
     <div style={{ margin: "20px" }}>
-      <Typography variant="h6">Zeitraum wählen</Typography>
+      <h6>Zeitraum wählen</h6>
       <Slider
         value={dateRange}
         onChange={handleSliderChange}
@@ -55,11 +55,11 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
         max={100}
         step={1}
       />
-      <Typography>
+      <h6>
         Möglicher Zeitraum: {minDate && maxDate && `${minDate} bis ${maxDate}`}
-      </Typography>
+      </h6>
       {dateRange && (
-        <Typography>
+        <h6>
           Ausgewählter Zeitraum:{" "}
           {dateList.length > 0 &&
             `${
@@ -67,7 +67,7 @@ export default function DateRangeSlider({ onDateRangeSelect }) {
             } bis ${
               dateList[Math.round((dateRange[1] / 100) * (dateList.length - 1))]
             }`}
-        </Typography>
+        </h6>
       )}
     </div>
   );
